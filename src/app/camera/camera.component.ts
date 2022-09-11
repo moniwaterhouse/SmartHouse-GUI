@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from '../_services/auth-guard.service';
+import { HouseControlService } from '../_services/house-control.service';
 
 @Component({
   selector: 'app-camera',
@@ -8,7 +9,7 @@ import { AuthGuardService } from '../_services/auth-guard.service';
 })
 export class CameraComponent implements OnInit {
 
-  constructor(private auth : AuthGuardService) { }
+  constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService) { }
 
   ngOnInit(): void {
   }
