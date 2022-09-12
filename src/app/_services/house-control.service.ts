@@ -19,7 +19,7 @@ export class HouseControlService {
   
   }
 
-  getLightStatus(lightState : LightState){
+  getLightState(lightState : LightState){
     return this.http.post(`${environment.apiUrl}/get_light_state`, lightState);
 
   }
