@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+
+    <title>camera</title>
+  </head>
+  <body>
+    <!-- Navbar - muestra el logo y el nombre del usuario logueado-->
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+          <div class="topnav-left">
+            <a class="navbar-brand"><img class="img-responsive navbar-brand" id="logo" src="https://i.pinimg.com/originals/ce/3a/6c/ce3a6c83ab4b34a9e9539c326ce2d5eb.jpg"></a>
+            <a style="margin-right: 20px; text-decoration: none; color: white" routerLink="/lights"  >Lights</a>
+            <a style="margin-right: 20px; text-decoration: none; color: white" routerLink="/doors">Doors</a>
+            <a style="margin-right: 20px; text-decoration: none; color: white" routerLink="/camera"><b>Camera</b></a>
+          </div>
+      
+          <div class="topnav-right">
+            <a style="margin-right: 20px; text-decoration: none; color: white" routerLink="/">Log out</a>
+          </div>
+        </div>
+      </nav>
+  
+
+
+    <div class="container">
+        <h1 style="margin-top: 50px; width: 80%;">Garden monitor</h1>
+        <button type="button" class="btn btn-primary"  style="margin-left: 30px; background-color: rgb(128, 202, 54); border-color: rgb(111, 192, 30);" (click)="takeGardenPhoto()">Take photo from garden</button>
+        
+    </div>
+
+    <div>
+        <img  class="images" src={{gardenPhoto}}/>
+    </div>
+  </body>
+</html>
