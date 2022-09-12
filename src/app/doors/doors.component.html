@@ -40,40 +40,58 @@
         <div class="card-container">
             <a class="card" target="_blank" rel="noopener">
               <div class="content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
+                <svg  *ngIf= "frontDoor == 0" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
                   <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
                   <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
-                </svg>  <a style="font-size: 20px;"><b>Front Door</b></a>
-                <a style="font-size: 15px;">closed</a>
+                </svg>  
+                <svg *ngIf= "frontDoor == 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                  <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                </svg>
+                <a style="font-size: 20px;"><b>Front Door</b></a>
+
+                
+                <a style="font-size: 15px;">{{frontDoorLabel}}</a>
               </div>
               
             </a>
             
             <a class="card" target="_blank" rel="noopener">
               <div class="content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
+                <svg  *ngIf= "backDoor == 0" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
                   <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
                   <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
-                </svg>  <a style="font-size: 20px;"><b>Back Door</b></a>
-                <a style="font-size: 15px;">closed</a>
+                </svg>  
+                <svg *ngIf= "backDoor == 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                  <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                </svg>
+                  <a style="font-size: 20px;"><b>Back Door</b></a>
+                <a style="font-size: 15px;">{{backDoorLabel}}</a>
               </div>
               </a>
               <a class="card" target="_blank" rel="noopener">
                 <div class="content">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
+                  <svg  *ngIf= "bedroom1Door == 0" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
                     <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
                     <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
-                  </svg>  <a style="font-size: 20px;"><b>Bedroom 1</b></a>
-                  <a style="font-size: 15px;">closed</a>
+                  </svg>  
+                  <svg *ngIf= "bedroom1Door == 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                    <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                  </svg>
+                  <a style="font-size: 20px;"><b>Bedroom 1</b></a>
+                  <a style="font-size: 15px;">{{bedroom1Label}}</a>
                 </div>
               </a>
               <a class="card" target="_blank" rel="noopener">
                 <div class="content">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
+                  <svg  *ngIf= "bedroom2Door == 0" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 18 18">
                     <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
                     <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
-                  </svg>  <a style="font-size: 20px;"><b>Bedroom 2</b></a>
-                  <a style="font-size: 15px;">closed</a>
+                  </svg>  
+                  <svg *ngIf= "bedroom2Door == 1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                    <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                  </svg>
+                   <a style="font-size: 20px;"><b>Bedroom 2</b></a>
+                  <a style="font-size: 15px;">{{bedroom2Label}}</a>
                 </div>
               </a>
             
