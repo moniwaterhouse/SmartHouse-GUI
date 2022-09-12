@@ -1,5 +1,5 @@
 export interface DoorState {
-    door : number;
+    door : string;
 }
 
 export interface LightState{

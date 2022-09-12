@@ -32,7 +32,12 @@
 
     <div class="container">
         <h1 style="margin-top: 50px; width: 80%;">Garden monitor</h1>
+        <button type="button" class="btn btn-primary"  style="margin-left: 30px; background-color: rgb(128, 202, 54); border-color: rgb(111, 192, 30);" (click)="takeGardenPhoto()">Take photo from garden</button>
         
+    </div>
+
+    <div>
+        <img  class="images" src={{gardenPhoto}}/>
     </div>
   </body>
 </html>

@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { LoginInfo, RegisterInfo } from '../_interfaces/user';
 import { ControlLight, LightState,  DoorState} from '../_interfaces/house-state';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,10 @@ export class HouseControlService {
     return this.http.post(`${environment.apiUrl}/get_door_state`, doorState);
   }
 
-  getGardenPhoto(){
-    return this.http.get(`${environment.apiUrl}/take_photo`);
+  getGardenPhoto() : Observable<Blob>{
+    return this.http.get(`${environment.apiUrl}/take_photo`, { responseType: 'blob' });
   }
+
 
   loginUser(loginInfo : LoginInfo){
     return this.http.post(`${environment.apiUrl}/login`, loginInfo);
