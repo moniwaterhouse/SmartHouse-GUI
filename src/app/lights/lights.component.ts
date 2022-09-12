@@ -20,8 +20,11 @@ export class LightsComponent implements OnInit {
   groupLightState !: boolean;
   toggleLabel !: string;
 
+  email !: string;
 
-  constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService, private route : Router) { }
+
+  constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService, private route : Router) { 
+  }
 
   ngOnInit(): void {
     this.toggleLabel = "Turn on all lights!"

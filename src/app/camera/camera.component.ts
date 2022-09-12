@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from '../_services/auth-guard.service';
 import { HouseControlService } from '../_services/house-control.service';
 import { first } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-camera',
@@ -11,8 +12,11 @@ import { first } from 'rxjs';
 export class CameraComponent implements OnInit {
 
   gardenPhoto !: any;
+  email !: string;
 
-  constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService) { }
+  constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService,  private route : Router) { 
+
+  }
 
   ngOnInit(): void {
   }

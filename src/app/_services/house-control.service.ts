@@ -21,29 +21,20 @@ export class HouseControlService {
   }
 
   getLightState(lightState : LightState){
-    return this.http.post(`${environment.apiUrl}/get_light_state`, lightState);
+    return this.http.post(`${environment.apiUrl}/home/get_light_state`, lightState);
 
   }
 
   changeLightState(controlLight : ControlLight){
-    return this.http.post(`${environment.apiUrl}/change_light_state`, controlLight);
+    return this.http.post(`${environment.apiUrl}/home/change_light_state`, controlLight);
   }
 
   getDoorState(doorState : DoorState){
-    return this.http.post(`${environment.apiUrl}/get_door_state`, doorState);
+    return this.http.post(`${environment.apiUrl}/home/get_door_state`, doorState);
   }
 
   getGardenPhoto() : Observable<Blob>{
-    return this.http.get(`${environment.apiUrl}/take_photo`, { responseType: 'blob' });
+    return this.http.get(`${environment.apiUrl}/home/take_photo`, { responseType: 'blob' });
   }
 
-
-  loginUser(loginInfo : LoginInfo){
-    return this.http.post(`${environment.apiUrl}/login`, loginInfo);
-  }
-
-  registerUser(registerInfo : RegisterInfo){
-    return this.http.post(`${environment.apiUrl}/sign_up`, registerInfo);
-
-  }
 }

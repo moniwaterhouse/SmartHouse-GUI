@@ -4,6 +4,7 @@ import { AuthGuardService } from '../_services/auth-guard.service';
 import { HouseControlService } from '../_services/house-control.service';
 import { DoorState } from '../_interfaces/house-state';
 import { first } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doors',
@@ -12,7 +13,6 @@ import { first } from 'rxjs';
 })
 export class DoorsComponent implements OnInit{
 
-  private unsub = new Subject<void>();
 
   frontDoor !: number;
   backDoor !: number;
@@ -28,8 +28,12 @@ export class DoorsComponent implements OnInit{
   door !: DoorState;
   doorState !: any;
 
-  constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService) {
-    
+  email !: string;
+  
+
+  constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService,  private route : Router) {
+    this.auth.usernameAux.subscribe((u: string) => { this.email = u });
+
   }
 
   ngOnInit(): void {

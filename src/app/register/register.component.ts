@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from '../_services/auth-guard.service';
 import { HouseControlService } from '../_services/house-control.service';
 import { Router } from '@angular/router';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   // Inputs
-  email !: string;
+  email!: string;
   password !: string;
   name !: string;
   username !: string;
@@ -25,10 +26,11 @@ export class RegisterComponent implements OnInit {
   hide = true;
   invalidPassword !: boolean;
 
-  // Variables usadas con los requests
-  correos : any;
+  user !: any;
+  signUpResponse !: any;
 
-  //datos !: DatosLogin;
+  // Variables usadas con los requests
+  
 
   constructor(private auth : AuthGuardService, private houseControlSrv : HouseControlService, private route : Router) { }
 
@@ -36,7 +38,52 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    this.route.navigate(['/lights']);
+    this.restoreFlags();
+
+    if(this.username == null || this.username.length < 1){
+      this.missingUsername = true;
+    }
+
+    if(this.password == null || this.password.length < 1){
+      this.missingPassword = true;
+    }
+
+    if(this.email == null || this.email.length < 1){
+      this.missingEmail = true;
+    }
+
+    if(this.name == null || this.name.length < 1){
+      this.missingName = true;
+    }
+
+    if(!this.missingPassword && !this.missingUsername){
+      
+      this.user = {username: this.username, password: this.password, name: this.name, email: this.email}
+
+      this.auth.signUp(this.user).pipe(first())
+      .subscribe(response => {
+        this.signUpResponse = response;
+        console.log(this.user)
+        if (this.signUpResponse.data.valid == true){
+          this.auth.setUsername(this.username);
+          this.route.navigate(['/lights']);
+        }
+        else{
+          this.invalidPassword = true;
+        }
+      })
+
+      
+    }
+  }
+   
+
+  restoreFlags(){
+    this.missingPassword = false;
+    this.missingUsername = false;
+    this.invalidPassword = false;
+    this.missingEmail = false;
+    this.missingName = false;
   }
 
 }
